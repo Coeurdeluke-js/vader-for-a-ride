@@ -1,0 +1,48 @@
+/* styles.css */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #121212; /* Fondo oscuro */
+}
+
+.game-container {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border: 2px solid #444;
+  background-image: url("img/background.jpg"); /* Imagen de fondo */
+  background-size: cover; /* Cubrir todo el contenedor */
+  background-position: center; /* Centrar la imagen de fondo */
+  overflow: hidden;
+}
+
+.character {
+  position: absolute;
+  width: 64px; /* Tamaño más grande */
+  height: 64px; /* Tamaño más grande */
+  background-image: url("img/darth-vader-sprite-sheet.png");
+  background-size: 256px 128px; /* Escalar la sprite sheet al doble */
+  background-position: 0 0; /* Frame inicial (derecha) */
+  left: 128px; /* Posición inicial centrada horizontalmente (320/2 - 64/2) */
+  top: 128px; /* Posición fija verticalmente (320/2 - 64/2) */
+}
+
+/* Animación de caminar hacia la derecha */
+@keyframes walk-right {
+  0% { background-position: 0 0; }
+  33.33% { background-position: -64px 0; }
+  66.66% { background-position: -128px 0; }
+  100% { background-position: -192px 0; }
+}
+
+/* Animación de caminar hacia la izquierda */
+@keyframes walk-left {
+  0% { background-position: 0 -64px; }
+  33.33% { background-position: -64px -64px; }
+  66.66% { background-position: -128px -64px; }
+  100% { background-position: -192px -64px; }
+}
