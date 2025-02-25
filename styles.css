@@ -29,20 +29,43 @@ body {
   background-position: 0 0; /* Frame inicial (derecha) */
   left: 128px; /* Posición inicial centrada horizontalmente (320/2 - 64/2) */
   top: 128px; /* Posición fija verticalmente (320/2 - 64/2) */
+  image-rendering: pixelated; /* Mejorar la visualización del pixel art */
 }
 
-/* Animación de caminar hacia la derecha */
 @keyframes walk-right {
   0% { background-position: 0 0; }
-  33.33% { background-position: -64px 0; }
-  66.66% { background-position: -128px 0; }
-  100% { background-position: -192px 0; }
+  100% { background-position: -256px 0; } /* Desplaza hasta el último frame */
 }
 
 /* Animación de caminar hacia la izquierda */
 @keyframes walk-left {
   0% { background-position: 0 -64px; }
-  33.33% { background-position: -64px -64px; }
-  66.66% { background-position: -128px -64px; }
-  100% { background-position: -192px -64px; }
+  100% { background-position: -256px -64px; } /* Desplaza hasta el último frame */
+}
+
+/* Botones para móviles */
+.mobile-controls {
+  display: none; /* Ocultar en escritorio */
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mobile-controls button {
+  font-size: 24px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #ec4d58;
+  color: #fafafa;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Mostrar botones solo en móviles */
+@media (max-width: 768px) {
+  .mobile-controls {
+    display: block;
+  }
 }
